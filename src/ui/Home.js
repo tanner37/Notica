@@ -210,9 +210,7 @@ export default class Home extends React.Component {
 						<h4>Quick Setup</h4>
 						<p>
 							Run this command: <br />
-							<code>
-								$ echo 'notica() &#123; curl --data "d:$*" "{url + id}" ; &#125;' >> ~/.bashrc && source ~/.bashrc
-							</code>
+							<code>{`$ echo 'notica() { curl --data "d:$*" "${url + id}" ; }' >> ~/.bashrc && source ~/.bashrc`}</code>
 						</p>
 						<p>Now open this page on any devices you want to receive the notifications on: <a href={url + id} rel="nofollow">{url + id}</a></p>
 
@@ -220,9 +218,7 @@ export default class Home extends React.Component {
 						<p>Curl is required to use Notica.</p>
 						<p>
 							Add this line to your <code className="smallcode">.bashrc</code> file:<br />
-							<code>
-								notica() &#123; curl --data "d:$*" "{url + id}" ; &#125;
-							</code>
+							<code>{`notica() { curl --data "d:$*" "${url + id}" ; }`}</code>
 						</p>
 						<p>
 							Source your <code className="smallcode">.bashrc</code> file to apply the changes:<br />

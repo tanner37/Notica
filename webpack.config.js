@@ -1,30 +1,29 @@
-var path = require('path');
-var webpack = require('webpack');
-
+const path = require('path');
 module.exports = {
-  devtool: 'eval',
-  entry: [
-    'webpack-dev-server/client?https://notica.us',
-    'webpack/hot/only-dev-server',
-    './src/index'
-  ],
+  mode: 'development',
+  devtool: 'eval-source-map',
+  entry: './src/index.js',
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: ''
+    publicPath: '/',
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ],
-  watchOptions: {
-    poll: true
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'public'),
+    },
+    hot: true,
+    historyApiFallback: true,
+    host: '127.0.0.1',
+    port: Number(process.env.PORT) || 3000,
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['react-hot', 'babel-loader'],
-      include: path.join(__dirname, 'src')
-    }]
-  }
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
+    ],
+  },
 };

@@ -1,4 +1,4 @@
-FROM node:13-alpine
+FROM node:22-alpine
 
 COPY / /notica/
 
@@ -7,7 +7,7 @@ WORKDIR /notica/
 RUN addgroup -S notica && \
     adduser -S notica -G notica && \
     apk add -U tzdata tini && \
-    yarn install && \
+    yarn install --frozen-lockfile && \
     chown -R notica:notica /notica/ && \
     chmod +x /notica/entrypoint
 

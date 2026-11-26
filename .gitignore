@@ -1,5 +1,6 @@
 public/bundle.js
 public/bundle.js.map
+public/bundle.js.LICENSE.txt
 node_modules
 npm-debug.log
 *.swp

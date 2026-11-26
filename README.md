@@ -27,6 +27,8 @@ https://notica.us/
 
 ### Self-hosting
 
+Requires Node.js 22.15 or newer in the 22.x series and Yarn 1.22.
+
 Hosting Notica on your own server is extremely easy.
 Clone this repository, change all notica.us URLs to your own domain, and then run `yarn install && yarn start`.
 

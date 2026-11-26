@@ -1,14 +1,14 @@
 {
-	"presets": [
-		"es2015",
-		"react"
-	],
-	"env": {
-		"production": {
-			"plugins": [
-				"transform-react-constant-elements",
-				"transform-react-inline-elements"
-			]
-		}
-	}
+  "presets": [
+    "@babel/preset-env",
+    ["@babel/preset-react", { "runtime": "classic" }]
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "@babel/plugin-transform-react-constant-elements",
+        "@babel/plugin-transform-react-inline-elements"
+      ]
+    }
+  }
 }

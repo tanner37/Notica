@@ -1,16 +1,9 @@
-var webpack = require('webpack');
-var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const config = require('./webpack.config');
 
-new WebpackDevServer(webpack(config), {
-  contentBase: './public',
-  hot: true,
-  historyApiFallback: true,
-  noInfo: true
-}).listen(3000, 'localhost', function (err, result) {
-  if (err) {
-    console.log(err);
-  }
-
-  console.log('Listening at localhost:3000');
+const server = new WebpackDevServer(config.devServer, webpack(config));
+server.start().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
 });

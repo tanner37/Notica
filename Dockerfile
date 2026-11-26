@@ -7,7 +7,7 @@ WORKDIR /notica/
 RUN addgroup -S notica && \
     adduser -S notica -G notica && \
     apk add -U tzdata tini && \
-    yarn install --frozen-lockfile && \
+    yarn install --frozen-lockfile --production=false && \
     chown -R notica:notica /notica/ && \
     chmod +x /notica/entrypoint
 
